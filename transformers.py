@@ -1,10 +1,10 @@
-from PIL import Image
+from PIL import Image, ImageDraw
 import numpy as np
 import copy
 
 IMAGE = 'image/logo.png'
 IMAGE = 'image/house.png'
-IMAGE = 'image/donic.png'
+#IMAGE = 'image/donic.png'
 
 class transformers:
     def __init__(self, image):
@@ -89,6 +89,16 @@ class transformers:
         #img = Image.fromarray(self.matrix).convert('LA')
         img.show()
 
+
+    def drawBox(self, ulx, uly, lrx, lry):
+        draw = ImageDraw.Draw(self.image)
+
+        draw.rectangle((ulx, uly, lrx, lry), fill=(135,206,235), outline=(0,0,139))
+
+        self.image = self.image.convert("RGB")
+        self.image.save("image/output.jpg", "JPEG")
+
+
     def showImage(self):
         img = self.image
         img.show()
@@ -105,16 +115,16 @@ class transformers:
         print(self.matrix)
 
 
-
 def main():    
     img = Image.open(IMAGE)
     bumblebee = transformers(img)
-    bumblebee.printWH()
+    #bumblebee.printWH()
     #bumblebee.showImage()
     #bumblebee.rotate()
     #bumblebee.flipVertical()
     #bumblebee.flipHorizontal()
-    bumblebee.turnBlackWhite()
+    #bumblebee.turnBlackWhite()
+    bumblebee.drawBox(400, 800, 500, 400)
 
 
 if __name__ == '__main__':
