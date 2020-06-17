@@ -89,7 +89,6 @@ class transformers:
         #img = Image.fromarray(self.matrix).convert('LA')
         img.show()
 
-
     def drawBox(self, ulx, uly, lrx, lry):
         draw = ImageDraw.Draw(self.image)
 
@@ -97,6 +96,33 @@ class transformers:
 
         self.image = self.image.convert("RGB")
         self.image.save("image/output.jpg", "JPEG")
+
+    def choseFilter(self, choice):
+        if(choice=="R"):
+            g=0
+            b=0
+            for row in self.matrix: 
+                for i in range((len(row))): 
+                    row[i][1] = g
+                    row[i][2] = b
+        if(choice=="G"):
+            r=0
+            b=0
+            for row in self.matrix: 
+                for i in range((len(row))): 
+                    row[i][0] = r
+                    row[i][2] = b
+        if(choice=="B"):
+            g=0
+            r=0
+            for row in self.matrix: 
+                for i in range((len(row))): 
+                    row[i][0] = r
+                    row[i][1] = g
+        
+
+        img = Image.fromarray(self.matrix)
+        img.show()
 
 
     def showImage(self):
@@ -124,7 +150,8 @@ def main():
     #bumblebee.flipVertical()
     #bumblebee.flipHorizontal()
     #bumblebee.turnBlackWhite()
-    bumblebee.drawBox(400, 800, 500, 400)
+    #bumblebee.drawBox(400, 800, 500, 400)
+    bumblebee.choseFilter("B")
 
 
 if __name__ == '__main__':
