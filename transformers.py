@@ -47,6 +47,35 @@ class transformers:
         img = Image.fromarray(self.matrix)
         img.show()
 
+    def flipVertical(self):
+        """
+        self.matrix = self.transformToSquare()
+        newMatrix = copy.deepcopy(self.matrix)  
+
+        n = len(self.matrix[0])-1      
+        for row in newMatrix: 
+            for i in range( n//2):   
+                self.matrix[i] = newMatrix[n-1-i]
+                self.matrix[n-1-i] = newMatrix[i] 
+        """
+        self.matrix = self.matrix[::-1, :, :]
+
+        img = Image.fromarray(self.matrix)
+        img.show()
+
+    def flipHorizontal(self):
+        """
+        for row in self.matrix: 
+            for i in range((len(row) + 1) // 2):   
+                temp = copy.deepcopy(row[i])
+                row[i] = row[len(row)-1-i]
+                row[len(row)-1-i] = temp
+        """
+        self.matrix = self.matrix[:, ::-1, :]
+
+        img = Image.fromarray(self.matrix)
+        img.show()
+
     def showImage(self):
         img = self.image
         img.show()
@@ -69,7 +98,9 @@ def main():
     bumblebee = transformers(img)
     bumblebee.printWH()
     #bumblebee.showImage()
-    bumblebee.rotate()
+    #bumblebee.rotate()
+    #bumblebee.flipVertical()
+    bumblebee.flipHorizontal()
 
 
 if __name__ == '__main__':
