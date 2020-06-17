@@ -76,6 +76,19 @@ class transformers:
         img = Image.fromarray(self.matrix)
         img.show()
 
+    def turnBlackWhite(self):
+        
+        for row in self.matrix: 
+            for i in range((len(row))): 
+                R = row[i][0]
+                G = row[i][1]
+                B = row[i][2]
+                row[i] = 0.2989*R + 0.5870*G + 0.1140*B 
+        
+        img = Image.fromarray(self.matrix)
+        #img = Image.fromarray(self.matrix).convert('LA')
+        img.show()
+
     def showImage(self):
         img = self.image
         img.show()
@@ -100,7 +113,8 @@ def main():
     #bumblebee.showImage()
     #bumblebee.rotate()
     #bumblebee.flipVertical()
-    bumblebee.flipHorizontal()
+    #bumblebee.flipHorizontal()
+    bumblebee.turnBlackWhite()
 
 
 if __name__ == '__main__':
