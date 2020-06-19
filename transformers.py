@@ -32,13 +32,13 @@ class transformers:
 
 
         ulx = Entry(self.master, width = 5)
-        ulx.insert(0, "0")
+        ulx.insert(0, "100")
         uly = Entry(self.master, width = 5)
-        uly.insert(0, "0")
+        uly.insert(0, "100")
         lrx = Entry(self.master, width = 5)
-        lrx.insert(0, "0")
+        lrx.insert(0, "200")
         lry = Entry(self.master, width = 5)
-        lry.insert(0, "0")
+        lry.insert(0, "200")
 
         cbox = ttk.Combobox(self.master, values=["R", "G", "B"], width = 5)
 
@@ -196,7 +196,7 @@ class transformers:
         imagePreview.grid(row = 1, column = 0, 
             columnspan = 18, rowspan = 18, padx = 5, pady = 5)  
         img.show() 
-        #neznam zakaj, ali dok img.show() ,koji baca errore, ostane napisan prikazuje se slika, a ako maknem ne. Curious
+        #neznam zakaj, ali dok img.show() ,koji baca errore, ostane napisan prikazuje se slika, a ako maknem ne. Hmmm curious
 
     def printWH(self):
         print(self.width)
